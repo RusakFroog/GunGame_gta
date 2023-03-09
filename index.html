@@ -6,32 +6,56 @@
     <title>Black Blue Screen Window</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 </head>
 
 <body>
     <div class="window">
-        <h1>Duels <span>by Rusak <span> and chatGPT</span></span></h1>
-
+        
         <div class="buttons">
-            <button id="button1"><i class="my-icon_creater"></i>Создать дуэль</button>
-            <button id="button2"><i class="my-icon_list"></i>Список дуэлей</button>
+            <button id="button1" @click="changeStyle(0)"><i class="my-icon_creater"></i>Создать дуэль</button>
+            <button id="button2" @click="changeStyle(1)"><i class="my-icon_list"></i>Список дуэлей</button>
         </div>
-        <div class="close-btn"> <img src="assets/cross.png" alt="Close"> </div>  <!-- Cross to close  -->
+        <div class="close-btn"> <img src="assets/cross.png" alt="Close"> </div> <!-- Cross to close -->
+
+        <div class="createrMatch" v-if="style == 0">
+            <div style="margin-top: 15px;" class="button-container">
+                <button id="carabine" @click="setWeapon('carabine', 'Carabine')"><i class="my-icon_guns"></i>Carabine Rifle</button>
+                <button id="asaultRifle" @click="setWeapon('assaultRifle', 'Assault Rifle')"><i class="my-icon_guns "></i>Assault Rifle</button>
+                <button id="revolver" @click="setWeapon('revolver', 'Revolver')"><i class="my-icon_guns "></i>Revolver</button>
+                <button id="tombson" @click="setWeapon('gusenberg', 'Gusenberg')"><i class="my-icon_guns "></i>Gusenberg</button>
+                <button id="sniper" @click="setWeapon('sniper', 'Sniper Rifle')"><i class="my-icon_guns "></i>Sniper Rifle</button>
+                <button id="pdw" @click="setWeapon('pdw', 'PDW')"><i class="my-icon_guns "></i>PDW</button>
+                <button id="marshal" @click="setWeapon('musket', 'Musket')"><i class="my-icon_guns "></i>Musket</button>
+                <button id="mg" @click="setWeapon('MG', 'MG')"><i class="my-icon_guns "></i>MG</button>
+                <button id="advancRifle" @click="setWeapon('advanceRifle', 'Advanced Rifle')"><i class="my-icon_guns "></i>Advanced Rifle</button>
+                <button id="carabinemk2" @click="setWeapon('carabinemk2', 'Carabine MK2')"><i class="my-icon_guns "></i>Carabine Rifle MK2</button>
+              </div>
+            <div class="create-btn">
+                <button class="btn-green" @click="createMatch()"><i class="my-icon_create"></i>Создать</button>
+            </div>
+            <h1>Оружие: <span>{{offName}}</span></h1>
+            <h1 style="margin-top: 40px">Ставка: </h1>
+            <input onkeypress="return allowOnlyNumbers(event)" oninput="formatCurrency(this)" type="text" v-model="price" maxlength="11" style="margin-bottom: -50px"/>
+        </div>
+
+        <div class="listMatch" v-if="style == 1">
+            <h2>style 1 </h2>
+        </div>
     </div>
+
+    <script src="duels.js"></script>
 
     <script>
         var button1 = document.getElementById("button1");
         var button2 = document.getElementById("button2");
 
-        // Add a click event listener to the buttons
         button1.addEventListener("click", function () {
-            // Remove the "active" class from button2 and add it to button1
             button2.classList.remove("active");
             button1.classList.add("active");
         });
 
         button2.addEventListener("click", function () {
-            // Remove the "active" class from button1 and add it to button2
             button1.classList.remove("active");
             button2.classList.add("active");
         });
@@ -39,6 +63,47 @@
         window.addEventListener("load", function () {
             button1.classList.add("active");
         });
+        
+        function allowOnlyNumbers(event) {
+            // Получаем код нажатой клавиши
+            var keyCode = event.keyCode || event.which;
+            
+            // Если это символ "/", отменяем его действие
+            if (keyCode == 191) {
+                event.preventDefault();
+                return false;
+            }
+            
+            // Проверяем, что введенная клавиша - цифра
+            if (keyCode >= 48 && keyCode <= 57) {
+                // Проверяем, что первый символ не равен 0
+                if (event.target.value.length === 0 && keyCode === 48) {
+                    event.preventDefault();
+                    return false;
+                }
+                // Проверяем, что длина введенного текста не превышает 10 символов
+                if (event.target.value.length >= 11) {
+                    event.preventDefault();
+                    return false;
+                }
+                // Если все в порядке, разрешаем ввод
+                return true;
+            }
+            
+            // Если это не цифра, отменяем ввод
+            event.preventDefault();
+            return false;
+        }
+
+        function formatCurrency(input) {
+            var num = input.value.replace(/\D/g, "");
+                
+            // Превращаем число в формат 1 000 000
+            var formattedNum = new Intl.NumberFormat("ru-RU").format(num);
+                
+            input.value = formattedNum;
+        }
+
     </script>
 
 </body>
