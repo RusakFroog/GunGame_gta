@@ -7,9 +7,6 @@ var duels = new Vue({
         price: 0,
     },
     methods: {
-        changeStyle(id){
-            this.style = id;
-        },
         setWeapon(name, offname){
             this.offName = offname;
             this.nameGun = name;
