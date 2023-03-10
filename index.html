@@ -20,27 +20,189 @@
 
         <div class="createrMatch" v-if="style == 0">
             <div style="margin-top: 15px;" class="button-container">
-                <button id="carabine" @click="setWeapon('carabine', 'Carabine')"><i class="my-icon_guns"></i>Carabine Rifle</button>
-                <button id="asaultRifle" @click="setWeapon('assaultRifle', 'Assault Rifle')"><i class="my-icon_guns "></i>Assault Rifle</button>
-                <button id="revolver" @click="setWeapon('revolver', 'Revolver')"><i class="my-icon_guns "></i>Revolver</button>
-                <button id="tombson" @click="setWeapon('gusenberg', 'Gusenberg')"><i class="my-icon_guns "></i>Gusenberg</button>
-                <button id="sniper" @click="setWeapon('sniper', 'Sniper Rifle')"><i class="my-icon_guns "></i>Sniper Rifle</button>
-                <button id="pdw" @click="setWeapon('pdw', 'PDW')"><i class="my-icon_guns "></i>PDW</button>
-                <button id="marshal" @click="setWeapon('musket', 'Musket')"><i class="my-icon_guns "></i>Musket</button>
-                <button id="mg" @click="setWeapon('MG', 'MG')"><i class="my-icon_guns "></i>MG</button>
-                <button id="advancRifle" @click="setWeapon('advanceRifle', 'Advanced Rifle')"><i class="my-icon_guns "></i>Advanced Rifle</button>
-                <button id="carabinemk2" @click="setWeapon('carabinemk2', 'Carabine MK2')"><i class="my-icon_guns "></i>Carabine Rifle MK2</button>
+                <button id="carabine" @click="setWeapon('carabine', 'Carabine')">
+                    <img src="assets/WEAPON_CARBINERIFLE.png" alt="carabine">
+                    <span>Carabine Rifle</span>
+                </button>
+                <button id="asaultRifle" @click="setWeapon('assaultRifle', 'Assault Rifle')">
+                    <img src="assets/WEAPON_ASSAULTRIFLE.png" alt="assaultRifle">
+                    <span>Assault Rifle</span>
+                </button>
+                <button id="revolver" @click="setWeapon('revolver', 'Revolver')">
+                    <img src="assets/WEAPON_REVOLVER.png" alt="revolver">
+                    <span>Revolver</span>
+                </button>
+                <button id="tombson" @click="setWeapon('gusenberg', 'Gusenberg')">
+                    <img src="assets/WEAPON_GUSENBERG.png" alt="gusenberg">
+                    <span>Gusenberg</span>
+                </button>
+                <button id="sniper" @click="setWeapon('sniper', 'Sniper Rifle')">
+                    <img src="assets/WEAPON_SNIPERRIFLE.png" alt="sniper">
+                    <span>Sniper Rifle</span>
+                </button>
+                <button id="pdw" @click="setWeapon('pdw', 'PDW')">
+                    <img src="assets/WEAPON_COMBATPDW.png" alt="pdw">
+                    <span>PDW</span></button>
+                <button id="marshal" @click="setWeapon('musket', 'Musket')">
+                    <img src="assets/WEAPON_MUSKET.png" alt="musket">
+                    <span>Musket</span></button>
+                </button>
+                <button id="mg" @click="setWeapon('MG', 'MG')">
+                    <img src="assets/WEAPON_MG.png" alt="mg">
+                    <span>MG</span>
+                </button>
+                <button id="advancRifle" @click="setWeapon('advanceRifle', 'Advanced Rifle')">
+                    <img src="assets/WEAPON_ADVANCEDRIFLE.png" alt="advancedRifle">
+                    <span>Advanced Rifle</span>
+                </button>
+                <button id="carabinemk2" @click="setWeapon('carabinemk2', 'Carabine MK2')">
+                    <img src="assets/WEAPON_CARBINERIFLE_MK2.png" alt="carabinemk2">
+                    <span>Carabine Rifle MK2</span>
+                </button>
               </div>
             <div class="create-btn">
                 <button class="btn-green" @click="createMatch()"><i class="my-icon_create"></i>Создать</button>
             </div>
-            <h1>Оружие: <span>{{offName}}</span></h1>
-            <h1 style="margin-top: 40px">Ставка: </h1>
+            <h1 style="margin-top: 2px;">Оружие: <span>{{offName}}</span></h1>
+            <h1 style="margin-top: 20px">Ставка: </h1>
             <input onkeypress="return allowOnlyNumbers(event)" oninput="formatCurrency(this)" type="text" v-model="price" maxlength="11" style="margin-bottom: -50px"/>
         </div>
 
         <div class="listMatch" v-if="style == 1">
-            <h2>style 1 </h2>
+            <div class="textblock5">
+				<div class="nameCreator" style="top: 2.5vh;"> Имя </div>
+				<div class="price" style="top: 2.5vh;"> Ставка </div>
+				<div class="gunInfo" style="top: 2.5vh;"> Оружие </div>
+                
+            <div v-if="duelsCreated[0] == true" class="duel1">
+                <div class="infoDuel_name"> Rusak Bonknot </div>
+                <div class="infoDuel_price"> 10 000 000 </div>
+                <div class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[1] == true" class="duel1">
+                <div style="margin-top: -195px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: -195px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: -195px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 35px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[2] == true" class="duel1">
+                <div style="margin-top: -160px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: -160px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: -160px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 70px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[3] == true" class="duel1">
+                <div style="margin-top: -125px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: -125px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: -125px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 105px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[4] == true" class="duel1">
+                <div style="margin-top: -90px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: -90px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: -90px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 140px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[5] == true" class="duel1">
+                <div style="margin-top: -55px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: -55px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: -55px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 175px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[6] == true" class="duel1">
+                <div style="margin-top: -20px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: -20px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: -20px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 210px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[7] == true" class="duel1">
+                <div style="margin-top: 15px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: 15px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: 15px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 245px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[8] == true" class="duel1">
+                <div style="margin-top: 50px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: 50px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: 50px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 280px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[9] == true" class="duel1">
+                <div style="margin-top: 85px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: 85px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: 85px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 315px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[10] == true" class="duel1">
+                <div style="margin-top: 120px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: 120px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: 120px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 350px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[11] == true" class="duel1">
+                <div style="margin-top: 155px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: 155px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: 155px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 385px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[12] == true" class="duel1">
+                <div style="margin-top: 190px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: 190px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: 190px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 420px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[13] == true" class="duel1">
+                <div style="margin-top: 225px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: 225px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: 225px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 455px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[14] == true" class="duel1">
+                <div style="margin-top: 260px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: 260px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: 260px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 490px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+            <div v-if="duelsCreated[15] == true" class="duel1">
+                <div style="margin-top: 295px;" class="infoDuel_name"> Rusak Bonknot </div>
+                <div style="margin-top: 295px;" class="infoDuel_price"> 10 000 000 </div>
+                <div style="margin-top: 295px;" class="infoDuel_gun"> Carabine Rifle MK2 </div>
+                <div style="margin-top: 525px;" class="create-btn1">
+                    <button class="btn-green1" @click="joinToMatch()"></i>Подключиться</button>
+                </div>
+            </div>
+			</div>
         </div>
     </div>
 

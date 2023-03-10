@@ -1,263 +1,382 @@
-    body {
-        overflow: hidden;
-        user-select: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-        /* ICONS */
-        .close-btn {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            cursor: pointer;
+        body {
+            overflow: hidden;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
+    /*#region ICONS */
+            .close-btn {
+                position: absolute;
+                top: 5px;
+                right: 10px;
+                cursor: pointer;
+            }
 
-        .close-btn img {
-            width: 25px;
-            height: 25px;
-        }
+            .close-btn img {
+                width: 25px;
+                height: 25px;
+            }
 
-        .my-icon_creater {
-            background-image: url("assets/creater.png");
-            background-size: contain;
-            width: 33px;
-            height: 33px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
+            .my-icon_creater {
+                background-image: url("assets/creater.png");
+                background-size: contain;
+                width: 33px;
+                height: 33px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
 
-        .my-icon_guns {
-            background-image: url("assets/gun.png");
-            background-size: contain;
-            width: 80px;
-            height: 80px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
+            .my-icon_guns {
+                background-image: url("assets/gun.png");
+                background-size: contain;
+                width: 80px;
+                height: 80px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
 
-        .my-icon_list {
-            background-image: url("assets/list_match.png");
-            background-size: contain;
-            width: 35px;
-            height: 35px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-        /* ICONS */
+            .my-icon_list {
+                background-image: url("assets/list_match.png");
+                background-size: contain;
+                width: 35px;
+                height: 35px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+    /*#endregion ICONS */
 
-    .window {
-        position: relative;
-        width: 1200px;
-        height: 700px;
-        background-color: rgb(30, 37, 54);
-        border-radius: 15px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        text-align: center;
-    }
-        /*  by RUSAK */
-        .window h1 {
-            font-size: 24px;
-            color: #fff;
-            margin: 0;
-            font-family: 'JetBrains Mono', monospace;
-            color: rgb(89, 93, 103);
-        }
-
-        .window h1 span {
-            font-size: 30px;
-            display: block;
-            /* text-transform: uppercase;  */
-            font-family: 'JetBrains Mono', monospace;
-            color: rgb(159, 167, 186);
-        }
-
-        .window h1 span span {
-            font-size: 8px;
-            display: block;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            color: rgb(36, 42, 56);
-        }
-        /*  by RUSAK */
-
-    .buttons {
-        position: absolute;
-        top: 10px;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 65px;
-        background-color: transparent;
-    }
-
-    .buttons button {
-        font-family: 'JetBrains Mono', monospace;
-        font-weight: 660;
-        margin: 0 10px;
-        background-color: transparent;
-        border: none;
-        color: rgb(146, 137, 137);
-        font-size: 24px;
-        width: calc(50% - 20px);
-        font-family: 'JetBrains Mono', monospace;
-    }
-
-        .buttons button:hover {
-            opacity: 0.86;
-        }
-
-        .buttons button.active {
+        .window {
+            position: relative;
+            width: 1200px;
+            height: 700px;
             background-color: rgb(30, 37, 54);
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
+            border-radius: 15px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            text-align: center;
+        }
+            /*  by RUSAK */
+            .window h1 {
+                font-size: 24px;
+                color: #fff;
+                margin: 0;
+                font-family: 'JetBrains Mono', monospace;
+                color: rgb(89, 93, 103);
+            }
+
+            .window h1 span {
+                font-size: 30px;
+                display: block;
+                /* text-transform: uppercase;  */
+                font-family: 'JetBrains Mono', monospace;
+                color: rgb(159, 167, 186);
+            }
+
+            .window h1 span span {
+                font-size: 8px;
+                display: block;
+                font-family: 'JetBrains Mono', monospace;
+                font-weight: 600;
+                color: rgb(36, 42, 56);
+            }
+            /*  by RUSAK */
+
+    /*#region button TOP */
+
+        .buttons {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 65px;
+            background-color: transparent;
         }
 
-        .buttons button i {
-            margin-right: 10px;
-        }
-        
-    .button-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        margin-top: -50px;
-    }
-        
-        .button-container button i {
-            display: inline-block;
-            width: 26px;
-            height: 26px;
-            margin-right: 7px;
-        }
-
-        .button-container button {
-            margin: 4px;
-            width: 140px;
-            height: 110px;
-            background-color: rgb(57, 71, 93);
+        .buttons button {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 660;
+            margin: 0 10px;
+            background-color: transparent;
             border: none;
-            border-radius: 3px;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
+            color: rgb(146, 137, 137);
+            font-size: 24px;
+            width: calc(50% - 20px);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+            .buttons button:hover {
+                opacity: 0.86;
+            }
+
+            .buttons button.active {
+                background-color: rgb(30, 37, 54);
+                color: rgb(255, 255, 255);
+                transition: 0.5s;
+            }
+
+            .buttons button i {
+                margin-right: 10px;
+            }
+    /*#endregion button TOP */
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: -50px;
+        }
+
+            .button-container button img {
+                width: 120px; 
+            } 
+            
+            .button-container button span {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 16px;
+                font-weight: 200;
+            } 
+
+            .button-container button {
+                margin: 4.5px;
+                width: 152px;
+                height: 120px;
+                background-color: rgb(57, 71, 93);
+                border: none;
+                border-radius: 3px;
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+                    
+        .button-container button:hover {
+            opacity: .9;
         }
                 
-    .button-container button:hover {
-        opacity: .9;
+        .button-container button.active {
+            background-color: rgb(43, 52, 67);
+            color: rgb(246, 246, 248);
+            transition: 0.1s;
+        }
+
+
+    /*#region Create*/
+        .create-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn-green {
+            background-color: rgb(29, 165, 29);
+            color: white;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+            padding: 18px 30px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .btn-green:hover {
+            background-color: rgb(84, 222, 84);
+            transition: 0.3s;
+        }
+    /*#endregion RegionName*/
+
+    /*#region Input*/
+        input[type="text"]::-webkit-outer-spin-button,
+        input[type="text"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        input[type="text"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        }
+
+        input[type="text"]:invalid {
+        background-color: #ffdddd;
+        }
+
+        input[type="text"][pattern] {
+        appearance: none;
+        -moz-appearance: textfield;
+        }
+
+        input[type="text"]::-webkit-outer-spin-button,
+        input[type="text"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        input[type="text"]::-webkit-outer-spin-button,
+        input[type="text"]::-webkit-inner-spin-button,
+        input[type="text"]::-webkit-input-speech-button,
+        input[type="text"]::-webkit-search-cancel-button,
+        input[type="text"]::-webkit-search-decoration {
+        display: none;
+        }
+
+        input[type="text"] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+        }
+
+        input[type="text"]::-webkit-outer-spin-button,
+        input[type="text"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        input[type="text"][pattern] {
+        appearance: none;
+        -moz-appearance: textfield;
+        }
+
+        input[type="text"] {
+            font-family: 'JetBrains Mono', monospace;
+            width: 15%;
+            padding: 8px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.5;
+            border-radius: 6px;
+            color: #fcf0f0;
+            background-color: rgb(27, 27, 30);
+            box-shadow: none; /* Удаление тени */
+            border: 1px solid rgb(27, 27, 30);
+            border-radius: 5px;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+        }
+    /*#endregion RegionName*/
+        
+    /*#region Style 2 */
+    .listMatch {
+        display: flex;
+        justify-content: space-between;
     }
-            
-    .button-container button.active {
-        background-color: rgb(43, 52, 67);
-        color: rgb(246, 246, 248);
-        transition: 0.1s;
+
+    .nameCreator,
+    .price,
+    .gunInfo {
+        font-family: 'JetBrains Mono', monospace;
     }
-/*#region Create*/
-    .create-btn {
+    .infoDuel_name, .infoDuel_price, .infoDuel_gun{
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 400;
+    }
+
+    .create-btn1 {
         position: absolute;
-        bottom: 20px;
-        left: 50%;
+        top: 120px;
+        left: 94%;
         transform: translateX(-50%);
     }
 
-    .btn-green {
+    .btn-green1 {
         background-color: rgb(29, 165, 29);
         color: white;
-        margin-bottom: 20px;
-        font-size: 20px;
+        margin-bottom: 50px;
+        font-size: 10px;
         font-family: 'JetBrains Mono', monospace;
-        font-weight: bold;
-        padding: 18px 30px;
+        padding: 6.5px 10px;
         border: none;
-        border-radius: 2px;
+        border-radius: 4px;
         cursor: pointer;
     }
-    .btn-green:hover {
+
+    .btn-green1:hover {
         background-color: rgb(84, 222, 84);
         transition: 0.3s;
     }
-/*#endregion RegionName*/
-
-/*#region Input*/
-    input[type="text"]::-webkit-outer-spin-button,
-    input[type="text"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-    }
-
-    input[type="text"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    }
-
-    input[type="text"]:invalid {
-    background-color: #ffdddd;
-    }
-
-    input[type="text"][pattern] {
-    appearance: none;
-    -moz-appearance: textfield;
-    }
-
-    input[type="text"]::-webkit-outer-spin-button,
-    input[type="text"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-    }
-
-    input[type="text"]::-webkit-outer-spin-button,
-    input[type="text"]::-webkit-inner-spin-button,
-    input[type="text"]::-webkit-input-speech-button,
-    input[type="text"]::-webkit-search-cancel-button,
-    input[type="text"]::-webkit-search-decoration {
-    display: none;
-    }
-
-    input[type="text"] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-    }
-
-    input[type="text"]::-webkit-outer-spin-button,
-    input[type="text"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-    }
-
-    input[type="text"][pattern] {
-    appearance: none;
-    -moz-appearance: textfield;
-    }
-
-    input[type="text"] {
-        font-family: 'JetBrains Mono', monospace;
-        width: 20%;
-        padding: 8px;
+        
+    .nameCreator {
+        color: #fff;
+        position: absolute;
+        width: 38vh;
+        background: #2d3f57bf;
         font-size: 20px;
-        text-align: center;
-        line-height: 1.5;
-        border-radius: 6px;
-        color: #fcf0f0;
-        background-color: rgb(27, 27, 30);
-        box-shadow: none; /* Удаление тени */
-        border: 1px solid rgb(27, 27, 30);
+        margin-top: 66px;
         border-radius: 5px;
+        left: 6vh;
+        margin-left: 0px;
     }
-    
-    input[type="text"]:focus {
-        outline: none;
+    .price {
+        color: #fff;
+        position: absolute;
+        width: 36vh;
+        background: #2d3f57bf;
+        font-size: 20px;
+        border-radius: 5px;
+        margin-top: 66px;
+        left: 46vh;
+        margin-left: -6px;
     }
-/*#endregion RegionName*/
-    
+    .gunInfo {
+        color: #fff;
+        position: absolute;
+        width: 48vh;
+        background: #2d3f57bf;
+        font-size: 20px;
+        border-radius: 5px;
+        margin-top: 66px;
+        left: 84vh;
+        margin-left: -12px;
+    }
+
+
+    .infoDuel_name {
+        color: #fff;
+        position: absolute;
+        width: 38vh;
+        background: rgb(43, 50, 60);
+        font-size: 20px;
+        margin-top: -230px;
+        border-radius: 5px;
+        left: 6vh;
+    }
+
+    .infoDuel_price {
+        color: #fff;
+        position: absolute;
+        width: 36vh;
+        background: rgb(43, 50, 60);
+        font-size: 20px;
+        border-radius: 5px;
+        margin-top: -230px;
+        left: 46vh;
+        margin-left: -6px;
+    }
+
+    .infoDuel_gun {
+        color: #fff;
+        position: absolute;
+        width: 48vh;
+        background: rgb(43, 50, 60);
+        font-size: 20px;
+        border-radius: 5px;
+        margin-top: -230px;
+        left: 84vh;
+        margin-left: -12px;
+    }
+
+    /*#endregion */
