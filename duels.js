@@ -18,14 +18,22 @@ var duels = new Vue({
             this.offName = offname;
             this.nameGun = name;
         },
+
         addDuelInList(userName, userBet, userGun) {
+            if(duelCreated[this.index] == true){
+                do {
+                    this.index+=1
+                    if(this.index == 16) return false;
+                }
+                while (duelCreated[this.index] == false);
+            }
+
             this.duelCreated[this.index] = true;
             
             this.duelerName[this.index] = userName;
             this.duelerPrice[this.index] = userBet;
             this.duelerGun[this.index] = userGun;
 
-            this.index += 1;
         },
         exitWindow() {
             mp.trigger("client_exitWindow");
